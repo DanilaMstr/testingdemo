@@ -43,6 +43,15 @@ namespace DemoLibrary
 
         public static List<string> ConvertModelsToCSV(List<PersonModel> people)
         {
+            if (people == null)
+            {
+                throw new ArgumentNullException("people", "You passed null in parameter");
+            }
+            if (people.Count() == 0)
+            {
+                throw new ArgumentException("You passed in an invalid parameter", "people");
+            }
+
             List<string> output = new List<string>();
 
             foreach (PersonModel user in people)
